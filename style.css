@@ -1,0 +1,229 @@
+
+
+
+
+/* Other Classe #f7f3f3, #f7f3f3  s for Page Styling */
+
+body {
+  
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+ 
+  font-family: 'Nunito', sans-serif;
+}
+
+.carousel-item {
+    height: 100vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Nunito', sans-serif;
+    
+   
+  }
+
+.navbar
+{
+    background-image: linear-gradient(to right, #fdfbfb, #fffdfd);
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+.navbar-brand
+{
+  height: 40px;
+  padding-left: 20px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.button {
+  background-color: #f3c8d4;
+  border: none;
+  color: rgb(68, 67, 67);
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 3px 1px;
+}
+.button4 {border-radius: 25px;}
+
+.navbar li a{
+  color: #ffff;
+  font-weight: 500;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  filter: invert(1);
+}
+
+
+.carousel-indicators .active {
+  
+  background-color: #313131;
+}
+
+
+mdb-carousel .carousel-multi-item .controls-top .btn-floating {
+  background: rgb(95, 94, 94);
+}
+
+.carousel-indicators 
+  li {
+    background-color: rgb(26, 25, 25) !important;
+  }
+
+ 
+
+
+                        
+#services
+ {
+   font-family: 'Nunito', sans-serif;
+   color: white;
+
+}
+#services .services-top {
+    padding: 70px 0 50px;
+}
+#services .services-list {
+    padding-top: 50px;
+}
+.services-list .service-block {
+    margin-bottom: 25px;
+}
+.services-list .service-block .ico {
+    font-size: 38px;
+    float: left;
+}
+.services-list .service-block .text-block {
+    margin-left: 58px;
+}
+.services-list .service-block .text-block .name {
+    font-size: 20px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+.services-list .service-block .text-block .info {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+.services-list .service-block .text-block .text {
+    font-size: 12px;
+    line-height: normal;
+    font-weight: 300;
+}
+.highlight {
+    color: #f0afaf;
+    font-weight:bold;
+}                    
+
+
+
+.form-group
+{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+}
+.aboutus1
+{
+  font-family: 'Nunito', sans-serif;
+}
+
+.bg-white py-5,row align-items-center
+{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 500;
+}
+
+.contact-form{
+  background: #fff;
+  margin-top: 10%;
+  margin-bottom: 5%;
+  width: 70%;
+}
+
+
+.contact4 {
+  font-family: 'Nunito', sans-serif;
+	color: #ffffff;
+  font-weight: 300;
+}
+
+.contact4 h1, .contact4 h2, .contact4 h3, .contact4 h4, .contact4 h5, .contact4 h6 {
+  color: #ffffff;
+}
+
+.contact4 .font-weight-medium {
+	font-weight: 500;
+}
+
+.contact4 .form-control {
+  background: transparent;
+  border: 2px solid rgba(37, 36, 36, 0.7);
+}
+
+.contact4 .form-control:focus {
+  border-color:  #ffffff;
+}
+
+.contact4 input::-webkit-input-placeholder,
+.contact4 textarea::-webkit-input-placeholder {
+  color:  #ffffff;
+}
+
+.contact4 input:-ms-input-placeholder,
+.contact4 textarea:-ms-input-placeholder {
+  color:  #ffffff;
+}
+
+.contact4 input::placeholder,
+.contact4 textarea::placeholder {
+  color:  #ffffff;
+}
+
+.contact4 .right-image {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+.contact4.bg-info {
+   background: linear-gradient(to right, #0062E6, #33AEFF);
+}
+
+.contact4 .text-inverse {
+    color: #3e4555 !important;
+}
+
+@media (min-width: 1024px) {
+	.contact4 .contact-box {
+    padding: 80px 105px 80px 0px;
+	}
+}
+
+@media (max-width: 767px) {
+	.contact4 .contact-box {
+    padding-left: 15px;
+    padding-right: 15px;
+	}
+}
+
+@media (max-width: 1023px) {
+	.contact4 .right-image {
+			position: relative;
+			bottom: -95px;
+	}
+}
+
+.aboutus1
+{
+  color: white;
+}
+
