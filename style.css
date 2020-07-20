@@ -10,6 +10,7 @@ body {
   background: linear-gradient(to right, #0062E6, #33AEFF);
  
   font-family: 'Nunito', sans-serif;
+
 }
 
 .carousel-item {
@@ -34,7 +35,7 @@ body {
 .navbar-brand
 {
   height: 40px;
-  padding-left: 20px;
+  padding-left: 0px;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -142,11 +143,15 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
 }
 
 .contact-form{
-  background: #fff;
+  border-radius: 25px;
+  background: #fdfcfc;
+  
   margin-top: 10%;
   margin-bottom: 5%;
   width: 70%;
+  
 }
+
 
 
 .contact4 {
@@ -232,3 +237,4 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
   color: white;
 
 }
+

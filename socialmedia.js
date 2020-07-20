@@ -1,17 +1,41 @@
-const userFullName = document.getElementById('userFullName');
-const userEmail = document.getElementById('userEmail');
-const userNumber = document.getElementById('userNumber');
-const submit = document.getElementById('submit');
+
+var firestore = firebase.firestore();
+
+//dom elements
+
+const submitBtn = document.querySelector("#submit");
+
+// ERROR: you used the id of #userName, suppose to be: userFullName
+let userName = document.querySelector("#userFullName");
+
+let userEmail = document.querySelector("#userEmail");
+let userNumber = document.querySelector("#userNumber");
 
 
-const database = firebase.database();
-const socialmediaRef = database.ref('/socialmedia');
-submit.addEventListener('click', e => {
-  e.preventDefault();
-  const autoId = socialmediaRef.push().key
-  socialmediaRef.child(autoId).set({
-    full_name: userFullName.value,
-    user_email: userEmail.value,
-    user_number: userNumber.value
-  });
+
+document.getElementById("submit").addEventListener("click", function () {
+  //submitBtn.addEventListener("click", function() {
+  let userNameInput = userName.value;
+  let userEmailInput = userEmail.value;
+  
+  let userNumberInput = userNumber.value;
+ 
+
+  //Access Database
+  // ERROR: db is not referenced to anything. You set it to firestore!
+  firestore
+    // ERROR: You didn't have a collection. Where would firebase send them!
+    .collection("socialmedia")
+    .doc()
+    .set({
+      name: userNameInput,
+      email: userEmailInput,
+      number: userNumberInput
+    })
+    .then(function () {
+      console.log("Data Saved");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });

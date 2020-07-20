@@ -1,27 +1,46 @@
 
+var firestore = firebase.firestore();
+
+//dom elements
+
+const submitBtn = document.querySelector("#submit");
+
+// ERROR: you used the id of #userName, suppose to be: userFullName
+let userName = document.querySelector("#userFullName");
+let userMessage = document.querySelector("#userMessage");
+let userEmail = document.querySelector("#userEmail");
+let userNumber = document.querySelector("#userNumber");
+let userCity = document.querySelector("#userCity");
+let userOrganisation = document.querySelector("#userOrganisation");
 
 
-//initialising firebase
+document.getElementById("submit").addEventListener("click", function () {
+  //submitBtn.addEventListener("click", function() {
+  let userNameInput = userName.value;
+  let userEmailInput = userEmail.value;
+  let userMessageInput = userMessage.value;
+  let userNumberInput = userNumber.value;
+  let userCityInput = userCity.value;
+  let userOrganisationInput = userOrganisation.value;
 
-const userFullName = document.getElementById('userFullName');
-const userEmail = document.getElementById('userEmail');
-const userNumber = document.getElementById('userNumber');
-const submit = document.getElementById('submit');
-const userCity= document.getElementById('userCity');
-const userMessage = document.getElementById('userMessage'); 
-const userOrganisation = document.getElementById('userOrganisation'); 
-
-const database = firebase.database();
-const servicesRef = database.ref('/services');
-submit.addEventListener('click', e => {
-  e.preventDefault();
-  const autoId = servicesRef.push().key
-  servicesRef.child(autoId).set({
-    full_name: userFullName.value,
-    user_email: userEmail.value,
-    user_city: userCity.value,
-    user_message: userMessage.value,
-    user_organisation: userOrganisation.value,
-    user_number: userNumber.value
-  });
+  //Access Database
+  // ERROR: db is not referenced to anything. You set it to firestore!
+  firestore
+    // ERROR: You didn't have a collection. Where would firebase send them!
+    .collection("services")
+    .doc()
+    .set({
+      name: userNameInput,
+      email: userEmailInput,
+      messege: userMessageInput,
+      number: userNumberInput,
+      city: userCityInput,
+      organisation: userOrganisationInput
+    })
+    .then(function () {
+      console.log("Data Saved");
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 });

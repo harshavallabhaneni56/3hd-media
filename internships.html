@@ -2,6 +2,7 @@
 
 <head>
     <title>3HD media</title>
+    <link rel="icon" href="images/icon.png" type="image/icon type">
 <link rel='stylesheet' href='style.css' >
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" >
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -21,7 +22,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     
         <div class="container">
-          <a class="navbar-brand" href="page1.html">3HD Media</a>
+          <a class="navbar-brand" href="page1.html" ><img src="images/logo.png" ></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -75,40 +76,77 @@
       </div>
     </div>
   </div>
+  <div class="container contact-form  py-4"">   
+    <h4 class="text-center">Verify and Fill the form below this</h4>
+    <br> 
+  <div class="form-group">
+    
+    <div class="form-group">
+      <label for="Name">PhoneNumber</label>
+      <input type="tel"  class="form-control"  id="phoneNumber"  />
+      
+  </div>       
+  <button id="sign-in-button"  class="btn btn-primary" onclick="submitPhoneNumberAuth()">
+     SEND OTP</button>
+     <br>
+     <br>
   
+ 
+     <div class="form-group">
+      <label for="Name">Enter OTP</label>
+  <input type="text" class="form-control"  id="code"   />
+
+</div> 
+
+  <!-- Add two buttons to submit the inputs -->
+ 
+  <button  type="submit" id="confirmcode"  class="btn btn-primary" onclick="submitPhoneNumberAuthCode()">
+    SUBMIT OTP
+  </button>
+
+
+  <!-- Add a container for reCaptcha -->
+  <div id="recaptcha-container"></div>
+</div>
+  </div>
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="clopes024@gmail.com"
+  action="https://script.google.com/macros/s/AKfycbwcYZSfG5o9IUFXjwr1FAqYRaE3G_-AoATz_WWOFA7G68oW8P6D/exec">
   <div class="container contact-form  py-4"">
     <h4 class="text-center">Intern Form</h4>
+    <h6 class="text-center">Note:Please do the above verification before filling this form</h6>
+        <br>
+
     <div class="form-group">
         <label for="Name">Full Name*</label>
-        <input type="text"  name="Full Name"  id="userFullName"  class="form-control" />
+        <input type="text"  name="Full Name"  id="userFullName"  class="form-control" required />
     </div>
     <div class="form-group">
         <label for="Email">Email*</label>
-        <input type="Email" name="Email" id="userEmail"  class="form-control" />
+        <input type="Email" name="Email" id="userEmail"  class="form-control"  required/>
         </div>
  <div class="form-group">
-    <label for="Number">Number*</label>
-     <input type="Number"  name="Number" id="userNumber" class="form-control"  /> 
+    <label for="Number">PhoneNumber*</label>
+     <input type="Number"  name="Number" id="userNumber" class="form-control" required  /> 
      </div>
      <div class="form-group">
       <label for="Address">Current Address*</label>
-      <input type="Address" name="Address" id="userAddress"  class="form-control" />
+      <input type="Address" name="Address" id="userAddress"  class="form-control"  required/>
       </div>
     <div class="form-group">
       <label for="City">City*</label>
-     <input type="City"  name="City" id="userCity" class="form-control"/> 
+     <input type="City"  name="City" id="userCity" class="form-control" required/> 
      </div>
      <div class="form-group"> <!-- Date input -->
       <label class="control-label" for="date"> Start Date*</label>
-      <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+      <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" required/>
     </div>
     <div class="form-group">
       <label for="College">College/University Name *</label>
-      <input type="College" name="College" id="userCollege"  class="form-control" />
+      <input type="College" name="College" id="userCollege"  class="form-control"  required/>
       </div>
     <div class="form-group">
      <label for="Organisation">Qualification*</label>
-     <select class="browser-default custom-select mb-4" id="userqualification">
+     <select class="browser-default custom-select mb-4" id="userqualification" required>
       <option value="" disabled>Choose option</option>
       <option value="1" selected>select qualification</option>
       <option value="Graduate">Graduate</option>
@@ -118,7 +156,7 @@
     </div>
     <div class="form-group">
       <label for="Organisation">Specialization*</label>
-      <select class="browser-default custom-select mb-4" id="userspecialization">
+      <select class="browser-default custom-select mb-4" id="userspecialization" required>
        <option value="" disabled>Choose option</option>
        <option value="1" selected>select specialization</option>
        <option value="Advertising">Advertising</option>
@@ -139,31 +177,96 @@
           
              
     <button id="submit" class="btn btn-primary">Submit</button>
+    <div class="thankyou_message" style="display:none;">
+      <h4>Thanks for contacting us!
+        We will get back to you soon!</h4>
+    </div>
     </div>
   
     </div>
+  </form>
 
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
 <script>
 var firebaseConfig = {
-    apiKey: "AIzaSyAXUKMgmYyeLXOhQzCB6gDiErQsiZEVL8o",
-    authDomain: "hd-media-62b9f.firebaseapp.com",
-    databaseURL: "https://hd-media-62b9f.firebaseio.com",
-    projectId: "hd-media-62b9f",
-    storageBucket: "hd-media-62b9f.appspot.com",
-    messagingSenderId: "309391020834",
-    appId: "1:309391020834:web:00bb0fe17bca5412eb4b7b",
-    measurementId: "G-QDYZTCJFVN",
-  };
-  firebase.initializeApp(firebaseConfig);
-  </script>
-    <script src="internships.js"></script>
+  apiKey: "AIzaSyAXUKMgmYyeLXOhQzCB6gDiErQsiZEVL8o",
+  authDomain: "hd-media-62b9f.firebaseapp.com",
+  databaseURL: "https://hd-media-62b9f.firebaseio.com",
+  projectId: "hd-media-62b9f",
+  storageBucket: "hd-media-62b9f.appspot.com",
+  messagingSenderId: "309391020834",
+  appId: "1:309391020834:web:00bb0fe17bca5412eb4b7b",
+  measurementId: "G-QDYZTCJFVN",
+};
+firebase.initializeApp(firebaseConfig);
+ // Create a Recaptcha verifier instance globally
+// Calls submitPhoneNumberAuth() when the captcha is verified
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-container",
+  {
+    size: "normal",
+    callback: function(response) {
+      submitPhoneNumberAuth();
+    }
+  }
+);
 
+// This function runs when the 'sign-in-button' is clicked
+// Takes the value from the 'phoneNumber' input and sends SMS to that phone number
+function submitPhoneNumberAuth() {
+  var phoneNumber = document.getElementById("phoneNumber").value;
+  var appVerifier = window.recaptchaVerifier;
+  firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then(function(confirmationResult) {
+      window.confirmationResult = confirmationResult;
+      alert("OTP SENT");
+    })
+    .catch(function(error) {
+      console.log(error);
+    });
+}
+
+// This function runs when the 'confirm-code' button is clicked
+// Takes the value from the 'code' input and submits the code to verify the phone number
+// Return a user object if the authentication was successful, and auth is complete
+function submitPhoneNumberAuthCode() {
+  var code = document.getElementById("code").value;
+  confirmationResult.confirm(code).then(function(result) {
+      var user = result.user;
+      console.log(user);
+      alert("VERIFICATION SUCCESSFUL PROCEED TO FORM BELOW");
+      
+    })
+    .catch(function(error) {
+      alert("VERIFICATION FAILED PLEASE TRY AGAIN");
+      console.log(error);
+    });
+}
+
+//This function runs everytime the auth state changes. Use to verify if the user is logged in
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    
+    console.log("USER LOGGED IN");
+    
+  } else {
+    // No user is signed in.
+    
+    console.log("USER NOT LOGGED IN");
+
+
+  }
+});
+
+</script>
+  <script data-cfasync="false" type="text/javascript" src="form-submission-handler.js"></script>
+  <script src="internships.js"></script>
 
     <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
       <div class="container text-center">
-        <small>Made by Pavitra & Harsha</small>
+        <p>Copyright 	&#169; 2020 All rights reserved</p>
       </div>
     </footer>
     

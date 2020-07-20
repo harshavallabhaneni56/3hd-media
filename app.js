@@ -1,17 +1,4 @@
-var firebaseConfig = {
-  apiKey: "AIzaSyAXUKMgmYyeLXOhQzCB6gDiErQsiZEVL8o",
-  authDomain: "hd-media-62b9f.firebaseapp.com",
-  databaseURL: "https://hd-media-62b9f.firebaseio.com",
-  projectId: "hd-media-62b9f",
-  storageBucket: "hd-media-62b9f.appspot.com",
-  messagingSenderId: "309391020834",
-  appId: "1:309391020834:web:00bb0fe17bca5412eb4b7b",
-  measurementId: "G-QDYZTCJFVN",
-};
 
-//initialising firebase
-
-firebase.initializeApp(firebaseConfig);
 var firestore = firebase.firestore();
 
 //dom elements
@@ -19,7 +6,7 @@ var firestore = firebase.firestore();
 const submitBtn = document.querySelector("#submit");
 
 // ERROR: you used the id of #userName, suppose to be: userFullName
-let userName = document.querySelector("#userName");
+let userName = document.querySelector("#userFullName");
 let userMessage = document.querySelector("#userMessage");
 let userEmail = document.querySelector("#userEmail");
 let userNumber = document.querySelector("#userNumber");
@@ -40,7 +27,7 @@ document.getElementById("submit").addEventListener("click", function () {
   // ERROR: db is not referenced to anything. You set it to firestore!
   firestore
     // ERROR: You didn't have a collection. Where would firebase send them!
-    .collection("submissions")
+    .collection("services")
     .doc()
     .set({
       name: userNameInput,
