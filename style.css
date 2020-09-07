@@ -4,79 +4,69 @@
 
 /* Other Classe #f7f3f3, #f7f3f3  s for Page Styling */
 
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
 body {
   
   background: #007bff;
-  background: linear-gradient(to right, #0062E6, #33AEFF);
- 
+  background: linear-gradient(to right, #0f6be4, #33AEFF);
+  overflow-x: hidden;
+  height: 100%;
   font-family: 'Nunito', sans-serif;
+  padding: 0px;
+  margin: 0px;
 
 }
-
-.carousel-item {
-    height: 100vh;
-    min-height: 350px;
-    background: no-repeat center center scroll;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    font-family: 'Nunito', sans-serif;
-    
-   
-  }
 
 .navbar
 {
     background-image: linear-gradient(to right, #fdfbfb, #fffdfd);
-    padding: 0;
+    padding: 30;
     font-family: 'Nunito', sans-serif;
+    box-shadow: 2px 2px 8px rgba(247, 39, 39, 0.5);
+    margin: 0px;
 }
 .navbar-brand
 {
-  height: 40px;
-  padding-left: 0px;
+  height: 50px;
+  padding-bottom: 0px;
   font-family: 'Nunito', sans-serif;
 }
 
 .button {
-  background-color: #f3c8d4;
+  background-color: #d16d6d; /* Green */
   border: none;
-  color: rgb(68, 67, 67);
-  padding: 15px;
+  color: white;
+  padding: 10px 22px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 12px;
-  margin: 3px 1px;
+  border-radius: 20px;
+  font-size: 16px;
+  margin: 10px 15px;
+  width: 125px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
 }
-.button4 {border-radius: 25px;}
+
+
+
+.button2:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
 
 .navbar li a{
   color: #ffff;
   font-weight: 500;
 }
 
-.carousel-control-next-icon,
-.carousel-control-prev-icon {
-  filter: invert(1);
-}
 
-
-.carousel-indicators .active {
-  
-  background-color: #313131;
-}
-
-
-mdb-carousel .carousel-multi-item .controls-top .btn-floating {
-  background: rgb(95, 94, 94);
-}
-
-.carousel-indicators 
-  li {
-    background-color: rgb(26, 25, 25) !important;
-  }
 
  
 
@@ -85,17 +75,20 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
 #services
  {
    font-family: 'Nunito', sans-serif;
-   color: white;
+   color: rgb(255, 255, 255);
+   
 
 }
 #services .services-top {
     padding: 70px 0 50px;
+    
 }
 #services .services-list {
     padding-top: 50px;
 }
 .services-list .service-block {
     margin-bottom: 25px;
+    
 }
 .services-list .service-block .ico {
     font-size: 38px;
@@ -103,6 +96,7 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
 }
 .services-list .service-block .text-block {
     margin-left: 58px;
+    
 }
 .services-list .service-block .text-block .name {
     font-size: 20px;
@@ -120,7 +114,7 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
     font-weight: 300;
 }
 .highlight {
-    color: #f0afaf;
+    color: #d88787;
     font-weight:bold;
 }                    
 
@@ -130,7 +124,9 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
 {
   font-family: 'Nunito', sans-serif;
   font-weight: 500;
+  
 }
+
 .aboutus1
 {
   font-family: 'Nunito', sans-serif;
@@ -149,7 +145,7 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
   margin-top: 10%;
   margin-bottom: 5%;
   width: 70%;
-  
+ 
 }
 
 
@@ -229,12 +225,44 @@ mdb-carousel .carousel-multi-item .controls-top .btn-floating {
 
 .aboutus1
 {
-  color: white;
+  color: rgb(255, 255, 255);
+  font-weight: 300 ;
+  
+}
+.wrapper{
+  margin-top: 0px;
 }
 
 .info
 {
-  color: white;
+  color: rgb(255, 255, 255);
 
 }
 
+
+
+
+ li.nav-item:hover{
+  -moz-border-radius-topleft: 10px;
+  -moz-border-radius-topright: 10px;
+  -moz-border-radius-bottomright: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-radius: 10px 10px 0px 0px;
+  border-radius: 25px 25px 25px 25px;
+  background-color: #e99c9c;
+}
+
+li.nav-item {
+  width: 115px;
+  height: 40px;
+  margin: 1px;
+  float: left;
+  
+}
+
+li.nav-item  a{
+  color: #fcfafa;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+}

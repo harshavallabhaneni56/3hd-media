@@ -1,58 +1,53 @@
 
-var firestore = firebase.firestore();
+let formMessage = firebase.database().ref('internships');
 
-//dom elements
+//listen for submit event//(1)
+document
+  .getElementById('registrationform')
+  .addEventListener('submit', formSubmit);
 
-const submitBtn = document.querySelector("#submit");
+//Submit form(1.2)
+function formSubmit(e) {
+  e.preventDefault();
+  // Get Values from the DOM
+  let name = document.querySelector('#userFullName').value;
+  let email = document.querySelector('#userEmail').value;
+  let userCity = document.querySelector('#userCity').value;
+  let phoneNumber = document.querySelector('#phoneNumber').value;
+  let userAddress = document.querySelector('#userAddress').value;
+  let date = document.querySelector('#date').value;
+  let userCollege = document.querySelector('#userCollege').value;
+  let userqualification = document.querySelector('#userqualification').value;
+  let userspecialization = document.querySelector('#userspecialization').value;
 
-// ERROR: you used the id of #userName, suppose to be: userFullName
-let userName = document.querySelector("#userFullName");
+  //send message values
+  sendMessage(name, email, phoneNumber, userCity, userAddress, date,userCollege,userqualification,userspecialization );
 
-let userEmail = document.querySelector("#userEmail");
-let userAddress = document.querySelector("#userAddress");
-let userNumber = document.querySelector("#userNumber");
-let userCity = document.querySelector("#userCity");
-let userdate = document.querySelector("#date");
+  //Show Alert Message(5)
+  document.querySelector('.alert').style.display = 'block';
 
-let userqualification = document.querySelector("#userqualification");
-let userspecialization = document.querySelector("#userspecialization");
+  //Hide Alert Message After Seven Seconds(6)
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 7000);
 
+  //Form Reset After Submission(7)
+  document.getElementById('registrationform').reset();
+}
 
-document.getElementById("submit").addEventListener("click", function () {
-  //submitBtn.addEventListener("click", function() {
-  let userNameInput = userName.value;
-  let userEmailInput = userEmail.value;
-  
-  let userAddressInput = userAddress.value;
-  let userNumberInput = userNumber.value;
-  let userCityInput = userCity.value;
-  
-  let userdateInput = userdate.value;
-  let userqualificationInput = userqualification.value;
-  let userspecializationInput = userspecialization.value;
+//Send Message to Firebase(4)
 
-  //Access Database
-  // ERROR: db is not referenced to anything. You set it to firestore!
-  firestore
-    // ERROR: You didn't have a collection. Where would firebase send them!
-    .collection("internships")
-    .doc()
-    .set({
-      name: userNameInput,
-      email: userEmailInput,
-    
-      address : userAddressInput,
-      number: userNumberInput,
-      city: userCityInput,
-      
-      date: userdateInput,
-      qualification : userqualificationInput,
-      specialisation : userspecializationInput
-    })
-    .then(function () {
-      console.log("Data Saved");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-});
+function sendMessage(name, email, phoneNumber, userCity, userAddress, date,userCollege,userqualification,userspecialization ) {
+  let newFormMessage = formMessage.push();
+  newFormMessage.set({
+    name: name,
+    email: email,
+    City: userCity,
+    number: phoneNumber,
+    address: userAddress,
+    date: date,
+    college: userCollege,
+    qualification: userqualification,
+    specialisation: userspecialization
+  });
+}

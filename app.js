@@ -9,7 +9,7 @@ const submitBtn = document.querySelector("#submit");
 let userName = document.querySelector("#userFullName");
 let userMessage = document.querySelector("#userMessage");
 let userEmail = document.querySelector("#userEmail");
-let userNumber = document.querySelector("#userNumber");
+let phoneNumber = document.querySelector("#phoneNumber");
 let userCity = document.querySelector("#userCity");
 let userOrganisation = document.querySelector("#userOrganisation");
 
@@ -19,7 +19,7 @@ document.getElementById("submit").addEventListener("click", function () {
   let userNameInput = userName.value;
   let userEmailInput = userEmail.value;
   let userMessageInput = userMessage.value;
-  let userNumberInput = userNumber.value;
+  let phoneNumberInput = phoneNumber.value;
   let userCityInput = userCity.value;
   let userOrganisationInput = userOrganisation.value;
 
@@ -33,7 +33,7 @@ document.getElementById("submit").addEventListener("click", function () {
       name: userNameInput,
       email: userEmailInput,
       messege: userMessageInput,
-      number: userNumberInput,
+      number: phoneNumberInput,
       city: userCityInput,
       organisation: userOrganisationInput
     })

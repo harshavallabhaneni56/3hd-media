@@ -1,41 +1,43 @@
+let formMessage = firebase.database().ref('socialmedia');
 
-var firestore = firebase.firestore();
+//listen for submit event//(1)
+document
+  .getElementById('registrationform')
+  .addEventListener('submit', formSubmit);
 
-//dom elements
-
-const submitBtn = document.querySelector("#submit");
-
-// ERROR: you used the id of #userName, suppose to be: userFullName
-let userName = document.querySelector("#userFullName");
-
-let userEmail = document.querySelector("#userEmail");
-let userNumber = document.querySelector("#userNumber");
-
-
-
-document.getElementById("submit").addEventListener("click", function () {
-  //submitBtn.addEventListener("click", function() {
-  let userNameInput = userName.value;
-  let userEmailInput = userEmail.value;
+//Submit form(1.2)
+function formSubmit(e) {
+  e.preventDefault();
+  // Get Values from the DOM
+  let name = document.querySelector('#userFullName').value;
+  let email = document.querySelector('#userEmail').value;
   
-  let userNumberInput = userNumber.value;
- 
+  let phoneNumber = document.querySelector('#phoneNumber').value;
+  
 
-  //Access Database
-  // ERROR: db is not referenced to anything. You set it to firestore!
-  firestore
-    // ERROR: You didn't have a collection. Where would firebase send them!
-    .collection("socialmedia")
-    .doc()
-    .set({
-      name: userNameInput,
-      email: userEmailInput,
-      number: userNumberInput
-    })
-    .then(function () {
-      console.log("Data Saved");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-});
+  //send message values
+  sendMessage(name, email, phoneNumber);
+
+  //Show Alert Message(5)
+  document.querySelector('.alert').style.display = 'block';
+
+  //Hide Alert Message After Seven Seconds(6)
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 7000);
+
+  //Form Reset After Submission(7)
+  document.getElementById('registrationform').reset();
+}
+
+//Send Message to Firebase(4)
+
+function sendMessage(name, email, phoneNumber) {
+  let newFormMessage = formMessage.push();
+  newFormMessage.set({
+    name: name,
+    email: email,
+    number: phoneNumber
+    
+  });
+}

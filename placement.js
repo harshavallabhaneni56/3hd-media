@@ -1,42 +1,44 @@
+let formMessage = firebase.database().ref('placements');
 
-var firestore = firebase.firestore();
+//listen for submit event//(1)
+document
+  .getElementById('registrationform')
+  .addEventListener('submit', formSubmit);
 
-//dom elements
+//Submit form(1.2)
+function formSubmit(e) {
+  e.preventDefault();
+  // Get Values from the DOM
+  let name = document.querySelector('#userFullName').value;
+  let email = document.querySelector('#userEmail').value;
+  let userCollege = document.querySelector('#userCollege').value;
+  let phoneNumber = document.querySelector('#phoneNumber').value;
+  
 
-const submitBtn = document.querySelector("#submit");
+  //send message values
+  sendMessage(name, email, phoneNumber, userCollege);
 
-// ERROR: you used the id of #userName, suppose to be: userFullName
-let userName = document.querySelector("#userFullName");
-let userCollege = document.querySelector("#userCollege");
-let userEmail = document.querySelector("#userEmail");
-let userNumber = document.querySelector("#userNumber");
+  //Show Alert Message(5)
+  document.querySelector('.alert').style.display = 'block';
 
+  //Hide Alert Message After Seven Seconds(6)
+  setTimeout(function() {
+    document.querySelector('.alert').style.display = 'none';
+  }, 7000);
 
+  //Form Reset After Submission(7)
+  document.getElementById('registrationform').reset();
+}
 
-document.getElementById("submit").addEventListener("click", function () {
-  //submitBtn.addEventListener("click", function() {
-  let userNameInput = userName.value;
-  let userEmailInput = userEmail.value;
-  let userCollegeInput = userCollege.value;
-  let userNumberInput = userNumber.value;
+//Send Message to Firebase(4)
 
-
-  //Access Database
-  // ERROR: db is not referenced to anything. You set it to firestore!
-  firestore
-    // ERROR: You didn't have a collection. Where would firebase send them!
-    .collection("placement")
-    .doc()
-    .set({
-      name: userNameInput,
-      email: userEmailInput,
-      college: userCollegeInput,
-      number: userNumberInput
-    })
-    .then(function () {
-      console.log("Data Saved");
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-});
+function sendMessage(name, email, phoneNumber, userCollege) {
+  let newFormMessage = formMessage.push();
+  newFormMessage.set({
+    name: name,
+    email: email,
+    College: userCollege,
+    number: phoneNumber
+    
+  });
+}

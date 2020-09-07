@@ -1,5 +1,5 @@
 
-(function() {
+(function (){
   
   function validEmail(email) {
     var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
@@ -113,7 +113,7 @@
   document.addEventListener("DOMContentLoaded", loaded, false);
 
   function disableAllButtons(form) {
-    var buttons = form.querySelectorAll("button");
+    var buttons = form.querySelector("button");
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].disabled = true;
     }
